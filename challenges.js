@@ -17,7 +17,7 @@ sayHello() //=> Hello!
 function sayHello() {
   return "Hello!";
 }
-
+console.log(sayHello());
 
 /*-----------------------------------------------------------------------------
 Challenge: 01-addOne
