@@ -36,8 +36,11 @@ addOne(-5) //=> -4
 -----------------------------------------------------------------------------*/
 // Your solution for 01-addOne here:
 
+const addOne = num => {
+  return num + 1; 
+}
 
-
+console.log(addOne(-5));
 
 
 /*-----------------------------------------------------------------------------
@@ -60,9 +63,15 @@ addTwoNumbers('Hello', 5) //=> NaN
 -----------------------------------------------------------------------------*/
 // Your solution for 02-addTwoNumbers here:
 
+const addTwoNumbers = (num1, num2) => {
+  if (typeof num1 !== 'number' || typeof num2 !== 'number'){
+    return NaN;
+  } else {
+    return num1 + num2; 
+  }
+}
 
-
-
+// console.log(addTwoNumbers(9, 5)) //=> NaN
 
 /*-----------------------------------------------------------------------------
 Challenge: 03-sumNumbers
@@ -84,9 +93,22 @@ sumNumbers([]) //=> 0
 -----------------------------------------------------------------------------*/
 // Your solution for 03-sumNumbers here:
 
+function sumNumbers(arr){
+  if (arr.length === 0){
+    return 0;
+  } 
+  let sum = 0; 
+  for (let num = 0; num < arr.length; num++) {
+    sum += arr[num];
+  }
+  return sum;
+}
+
+console.log(sumNumbers([2, 10, -5])) //=> 7
 
 
-
+// alternate
+return arr.reduce((sum, num) => sum + num, 0); // how do I use reduce 
 
 /*-----------------------------------------------------------------------------
 Challenge: 04-addList
