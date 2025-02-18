@@ -108,7 +108,7 @@ console.log(sumNumbers([2, 10, -5])) //=> 7
 
 
 // alternate
-return arr.reduce((sum, num) => sum + num, 0); // how do I use reduce 
+// return arr.reduce((sum, num) => sum + num, 0); // how do I use reduce 
 
 /*-----------------------------------------------------------------------------
 Challenge: 04-addList
@@ -131,8 +131,19 @@ addList(7,-12) //=> -5
 // Your solution for 04-addList here:
 
 
+// function addList(...nums) {
+//    let sum = 0;
+//    for (let num of nums){
+//      sum += num;
+//    }
+//    return sum;
+// }
 
+function addList(...nums) {
+   return nums.reduce((sum, num) => sum + num, 0);
+}
 
+console.log(addList(1,2,5));
 
 /*-----------------------------------------------------------------------------
 Challenge: 05-computeRemainder
