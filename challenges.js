@@ -168,7 +168,26 @@ computeRemainder(10.5, 3) //=> 1.5
 -----------------------------------------------------------------------------*/
 // Your solution for 05-computeRemainder here:
 
+function computeRemainder(num1, num2){
+  if (num2 === 0){
+    return Infinity;
+  } else {
+    while (num1 >= num2){
+      num1 -= num2
+    }
+    return num1;
+  }
+}
 
+console.log(computeRemainder(4,3)) 
+
+// alternate:
+// function computeRemainder(num1, num2){
+//   if (num2 === 0) return Infinity;
+//   else return num1 - Math.floor(num1/num2) * num2;
+// }
+
+// console.log(computeRemainder(4,3)) //=> 0
 
 
 
