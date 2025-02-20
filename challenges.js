@@ -269,7 +269,7 @@ function reverseUpcaseString(str) {
   return reversed;
 }
 
-console.log(reverseUpcaseString("SEI Rocks!"))
+// console.log(reverseUpcaseString("SEI Rocks!"))
 
 
 /*-----------------------------------------------------------------------------
@@ -290,9 +290,18 @@ removeEnds('a') //=> "" (empty string)
 -----------------------------------------------------------------------------*/
 // Your solution for 08-removeEnds here:
 
+function removeEnds(str){
+  if (str.length < 3){
+    return "";
+  }
+  let result = "";
+  for(let i = 1; i < str.length-1; i++){
+    result += str[i]
+  }
+  return result;
+}
 
-
-
+console.log(removeEnds('SEB Rocks!'))
 
 /*-----------------------------------------------------------------------------
 Challenge: 09-charCount
