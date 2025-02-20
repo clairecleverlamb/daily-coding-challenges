@@ -214,20 +214,26 @@ range(5,2) //=> "First argument must be less than second"
 -----------------------------------------------------------------------------*/
 // Your solution for 06-range here:
 
-function range(int1, int2) {
-  if (int1 > int2) {
-    return "First argument must be less than second";
-  }
-  const rangeArray = [];
-  for (let i = int1; i < int2; i++) {
-    rangeArray.push(i);
-  }
-  return rangeArray;
+// function range(int1, int2) {
+//   if (int1 > int2) {
+//     return "First argument must be less than second";
+//   }
+//   const rangeArray = [];
+//   for (let i = int1; i < int2; i++) {
+//     rangeArray.push(i);
+//   }
+//   return rangeArray;
+// }
+
+// console.log(range(-2,3));
+
+// recursion 
+function range(int1, int2, arr = []){
+  if (int1 >= int2) return int1 === int2 ? arr:"First argument must be less than second";
+  return range(int1 + 1 , int2 , [...arr, int1]);
 }
 
-console.log(range(-2,3));
-
-
+// console.log(range(-2,3));
 
 /*-----------------------------------------------------------------------------
 Challenge: 07-reverseUpcaseString
@@ -247,8 +253,23 @@ reverseUpcaseString("SEI Rocks!") //=> "!SKCOR IES"
 -----------------------------------------------------------------------------*/
 // Your solution for 07-reverseUpcaseString here:
 
+// loop from the end; 
+// function reverseUpcaseString(str) {
+//    let result = "";
+//    str = str.toUpperCase();
+//    for (let i = str.length -1 ; i >= 0; i--){
+//      result += str[i]
+//    }
+//    return result;
+// }
 
+function reverseUpcaseString(str) {
+  let letters = str.toUpperCase().split('');
+  let reversed = letters.reverse().join('');
+  return reversed;
+}
 
+console.log(reverseUpcaseString("SEI Rocks!"))
 
 
 /*-----------------------------------------------------------------------------
