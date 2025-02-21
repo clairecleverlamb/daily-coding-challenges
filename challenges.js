@@ -228,9 +228,9 @@ range(5,2) //=> "First argument must be less than second"
 // console.log(range(-2,3));
 
 // recursion 
-function range(int1, int2, arr = []){
-  if (int1 >= int2) return int1 === int2 ? arr:"First argument must be less than second";
-  return range(int1 + 1 , int2 , [...arr, int1]);
+function range(int1, int2, arr = []) {
+  if (int1 >= int2) return int1 === int2 ? arr : "First argument must be less than second";
+  return range(int1 + 1, int2, [...arr, int1]);
 }
 
 // console.log(range(-2,3));
@@ -290,18 +290,18 @@ removeEnds('a') //=> "" (empty string)
 -----------------------------------------------------------------------------*/
 // Your solution for 08-removeEnds here:
 
-function removeEnds(str){
-  if (str.length < 3){
+function removeEnds(str) {
+  if (str.length < 3) {
     return "";
   }
   let result = "";
-  for(let i = 1; i < str.length-1; i++){
+  for (let i = 1; i < str.length - 1; i++) {
     result += str[i]
   }
   return result;
 }
 
-console.log(removeEnds('SEB Rocks!'))
+// console.log(removeEnds('SEB Rocks!'))
 
 /*-----------------------------------------------------------------------------
 Challenge: 09-charCount
@@ -341,8 +341,37 @@ charCount('Today is fantastic!')
 -----------------------------------------------------------------------------*/
 // Your solution for 09-charCount here:
 
+//method 1 
+// function charCount(str) {
+//   let counts = {};
+//   for (let i = 0; i < str.length; i++) {
+//     let char = str[i]
+//     if (char in counts) {
+//       counts[char] += 1;
+//     } else {
+//       counts[char] = 1;
+//     }
+//   }
+//   return counts;
+// }
+// console.log(charCount('Today is fantastic!'))
+
+//method 2 
+// function charCount(str) {
+//   let counts = {};
+//   for (let i = 0; i < str.length; i++) {
+//     let char = str[i]
+//     counts[char] = (counts[char] || 0) + 1;
+//   }
+//   return counts;
+// }
+
+// console.log(charCount('Today is fantastic!'))
 
 
+// method 3 reduce 
+
+// method 4 Map
 
 
 /*-----------------------------------------------------------------------------
