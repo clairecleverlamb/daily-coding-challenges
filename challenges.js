@@ -234,6 +234,10 @@ function range(int1, int2, arr = []) {
   return range(int1 + 1, int2, [...arr, int1]);
 }
 
+// generator method
+
+
+
 // console.log(range(-2,3));
 
 /*-----------------------------------------------------------------------------
@@ -378,7 +382,10 @@ return str.split('').reduce((counts, char) => {
   return counts;
 }, {});
 }
-console.log(charCount('Today is fantastic!'))
+// console.log(charCount('Today is fantastic!')) 
+
+
+// hasOwnProperty()
 
 // method 4 Map
 
@@ -409,9 +416,15 @@ formatWithPadding(1234, '*', 3) //=> "1234"
 -----------------------------------------------------------------------------*/
 // Your solution for 10-formatWithPadding here:
 
+function formatWithPadding(int, pad, padInt) {
+  if (padInt < String(int).length){
+    return int; 
+  } else 
+    return pad.repeat(padInt - String(int).length) + String(int); 
+  }
 
 
-
+// console.log(formatWithPadding(42, '*', 10))
 
 /*-----------------------------------------------------------------------------
 Challenge: 11-isPalindrome
@@ -437,8 +450,16 @@ isPalindrome('') //=> true
 -----------------------------------------------------------------------------*/
 // Your solution for 11-isPalindrome here:
 
+function isPalindrome(str){
+  if (str.length === 1) return true;
+  let lowerStr = str.toLowerCase().replace(/[^a-z0-9]/g, '');
+  let reversed = lowerStr.split('').reverse().join('');
+  return lowerStr === reversed;
+  
+}
 
-
+// console.log(isPalindrome('A nut for a jar of tuna'));
+// console.log(isPalindrome('rotor'));
 
 
 /*-----------------------------------------------------------------------------
