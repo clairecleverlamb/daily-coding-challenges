@@ -70,6 +70,7 @@ const addTwoNumbers = (num1, num2) => {
     return num1 + num2;
   }
 }
+// isNaN
 
 // console.log(addTwoNumbers(9, 5)) //=> NaN
 
@@ -370,6 +371,14 @@ charCount('Today is fantastic!')
 
 
 // method 3 reduce 
+
+function charCount(str){
+return str.split('').reduce((counts, char) => {
+  counts[char] = (counts[char] || 0 ) + 1;
+  return counts;
+}, {});
+}
+console.log(charCount('Today is fantastic!'))
 
 // method 4 Map
 
