@@ -450,12 +450,29 @@ isPalindrome('') //=> true
 -----------------------------------------------------------------------------*/
 // Your solution for 11-isPalindrome here:
 
-function isPalindrome(str){
-  if (str.length === 1) return true;
-  let lowerStr = str.toLowerCase().replace(/[^a-z0-9]/g, '');
-  let reversed = lowerStr.split('').reverse().join('');
-  return lowerStr === reversed;
-  
+// function isPalindrome(str){
+//   if (str.length === 1) return true;
+//   let lowerStr = str.toLowerCase().replace(/[^a-z0-9]/g, '');
+//   let reversed = lowerStr.split('').reverse().join('');
+//   return lowerStr === reversed;
+// }
+
+// console.log(isPalindrome('A nut for a jar of tuna'));
+// console.log(isPalindrome('rotord'));
+
+//method 2:  moving 2 pointers
+function isPalindrome(str) {
+  let cleanStr = str.toLowerCase().replace(/[^a-z0-9]/g, "");
+  let left = 0;
+  let right = cleanStr.length - 1;
+  while (left < right){
+    if (cleanStr[left] !== cleanStr[right]) {
+      return false;
+    }
+    left++;
+    right--;
+  }
+  return true;
 }
 
 // console.log(isPalindrome('A nut for a jar of tuna'));
@@ -488,9 +505,35 @@ hammingDistance('abc', 'ab') //=> NaN
 -----------------------------------------------------------------------------*/
 // Your solution for 12-hammingDistance here:
 
+// function hammingDistance(arg1, arg2){
+//   if(arg1.length !== arg2.length){return NaN}
+//   let count = 0;
+//   for (let i = 0; i < arg1.length; i++){
+//     if (arg1[i] !== arg2[i]) {
+//       count += 1;
+//     }
+//   }
+//   return count;
+// }
 
+// console.log(hammingDistance('a1c', 'a2c'))
+// console.log(hammingDistance('abc', 'ab'))
 
+// method 2: use reduce
 
+function hammingDistance(arg1, arg2){
+  if(arg1.length !== arg2.length){return NaN}
+  
+  return arg1.split('').reduce((count, char, i ) => {
+    return count + (char !== arg2[i] ? 1 : 0)    // ternary operator 
+  }, 0 )
+}
+
+// note: string does not have a .reduce(), use arg1.split() or [...arg1]
+// convert a string into an array of individual characters;
+
+// console.log(hammingDistance('a1cd', 'a2ce'))
+// console.log(hammingDistance('abc', 'ab'))
 
 /*-----------------------------------------------------------------------------
 Challenge: 13-mumble
