@@ -535,6 +535,9 @@ function hammingDistance(arg1, arg2){
 // console.log(hammingDistance('a1cd', 'a2ce'))
 // console.log(hammingDistance('abc', 'ab'))
 
+
+
+
 /*-----------------------------------------------------------------------------
 Challenge: 13-mumble
 
@@ -558,8 +561,33 @@ mumble('!A 2') //=> '!-AA-   -2222'
 -----------------------------------------------------------------------------*/
 // Your solution for 13-mumble here:
 
+// function mumble(str){
+//   let result = [];
+//   for (let i = 0; i < str.length ; i++){
+//     result.push(str[i].repeat(i+1));
+//   }
+//   return result.join('-')
+// }
 
+// console.log(mumble('abc'));
 
+/// method 2: reduce 
+
+// function mumble(str){
+//   return str.split('').reduce((acc, char, i) => 
+//     acc + (i > 0 ? '-' : '') + char.repeat(i+1),'');
+// };
+
+// console.log(mumble('abc'));
+
+/// method 3 .map()
+function mumble(str) {
+  return str.split('').map((char, i ) => 
+    char.repeat(i + 1))
+  .join('-');
+}
+
+console.log(mumble('abc'));
 
 
 /*-----------------------------------------------------------------------------
