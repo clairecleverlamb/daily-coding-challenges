@@ -587,7 +587,7 @@ function mumble(str) {
   .join('-');
 }
 
-console.log(mumble('abc'));
+// console.log(mumble('abc'));
 
 
 /*-----------------------------------------------------------------------------
@@ -614,8 +614,23 @@ fromPairs([ ['name', 'Sam"], ['age', 24], ['name', 'Sally'] ])
 -----------------------------------------------------------------------------*/
 // Your solution for 14-fromPairs here:
 
+function fromPairs(arr) {
+  return arr.reduce((obj, [key, value]) => {
+    obj[key] = value; // already overwritten 
+    return obj;
+  }, {})
+}
+
+console.log(fromPairs([ ['name', 'Sam'], ['age', 24], ['name', 'Sally'] ]))
 
 
+//map()
+
+// function fromPairs(arr){
+//   return Object.assign({},...arr.map(([key, value]) => ({[key]: value})));
+// }
+
+// console.log(fromPairs([ ['name', 'Sam'], ['age', 24], ['name', 'Sally'] ]))
 
 
 /*-----------------------------------------------------------------------------
