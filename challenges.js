@@ -621,7 +621,7 @@ function fromPairs(arr) {
   }, {})
 }
 
-console.log(fromPairs([ ['name', 'Sam'], ['age', 24], ['name', 'Sally'] ]))
+// console.log(fromPairs([ ['name', 'Sam'], ['age', 24], ['name', 'Sally'] ]))
 
 
 //map()
@@ -639,8 +639,7 @@ Challenge: 15-mergeObjects
 Difficulty: Intermediate
 
 Prompt:
-
-- Write a function named mergeObjects that accepts at least two objects as
+ Write a function named mergeObjects that accepts at least two objects as
   arguments, merges the properties of the second through n objects into the
   first object, then finally returns the first object.
 - If any objects have the same property key, values from the object(s) later
@@ -659,9 +658,15 @@ mergeObjects({a: 1, b: 2, c: 3}, {d: 4}, {b: 22, d: 44})
 //=> {a: 1, b: 22, c: 3, d: 44}
 -----------------------------------------------------------------------------*/
 // Your solution for 15-mergeObjects here:
+-
+
+function mergeObjects(...objs){
+  return Object.assign({}, ...objs);
+  // console.log(obj);
+}
 
 
-
+console.log(mergeObjects({a: 1, b: 2, c: 3}, {d: 4}, {b: 22, d: 44}));
 
 
 /*-----------------------------------------------------------------------------
