@@ -658,16 +658,26 @@ mergeObjects({a: 1, b: 2, c: 3}, {d: 4}, {b: 22, d: 44})
 //=> {a: 1, b: 22, c: 3, d: 44}
 -----------------------------------------------------------------------------*/
 // Your solution for 15-mergeObjects here:
--
 
-function mergeObjects(...objs){
-  return Object.assign({}, ...objs);
-  // console.log(obj);
+// function mergeObjects(...objs){
+//   return Object.assign({}, ...objs);
+//   // console.log(obj);
+// }
+
+
+// console.log( mergeObjects({a: 1, b: 2, c: 3}, {d: 4}, {b: 22, d: 44}) );
+
+// looping 
+function mergeObjects(target, ...objs){
+  for (let obj of objs){
+    for (let key in obj){
+      target[key] = obj[key];
+    }
+  }
+  return target;
 }
 
-
-console.log(mergeObjects({a: 1, b: 2, c: 3}, {d: 4}, {b: 22, d: 44}));
-
+// console.log( mergeObjects({a: 1, b: 2, c: 3}, {d: 4}, {b: 22, d: 44}) );
 
 /*-----------------------------------------------------------------------------
 Challenge: 16-findHighestPriced
