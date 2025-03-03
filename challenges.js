@@ -755,16 +755,24 @@ mapArray( ['rose', 'tulip', 'daisy'], function(f, i) {
 -----------------------------------------------------------------------------*/
 // Your solution for 17-mapArray here:
 
-function mapArray(arr, callback){
-  let result = [];
-  for(let i = 0; i < arr.length; i++){
-    result.push(callback(arr[i], i));
-  }
-  return result;
-}
+// function mapArray(arr, callback){
+//   let result = [];
+//   for(let i = 0; i < arr.length; i++){
+//     result.push(callback(arr[i], i));
+//   }
+//   return result;
+// }
 
-console.log(mapArray( [1, 2, 3], function(n) {
-  return n * 3
+
+// using reduce 
+function mapArray(arr, callback){
+  return arr.reduce((acc, element, index) => {
+    acc.push(callback(element, index));
+    return acc;
+  }, []);
+}
+console.log(mapArray( ['rose', 'tulip', 'daisy'], function(f, i) {
+  return `${i + 1} - ${f}`
 } ))
 
 
