@@ -698,7 +698,6 @@ Prompt:
 - Do not mutate the array that is passed in.
 
 Examples:
-
 findHighestPriced([
   { sku: 'a1', price: 25 },
   { sku: 'b2', price: 5 },
@@ -706,7 +705,6 @@ findHighestPriced([
   { sku: 'd4', price: 10 }
 ])
 //=> { sku: 'c3', price: 50 }
-
 findHighestPriced([
   { sku: 'a1', price: 25 },
   { sku: 'b2', price: 50 },
@@ -717,9 +715,30 @@ findHighestPriced([
 -----------------------------------------------------------------------------*/
 // Your solution for 16-findHighestPriced here:
 
+// function findHighestPriced(items){
+//   if(items.length === 0) return null;
 
+//   let highestPriced = items[0];
+//   for(let i = 1; i < items.length; i++){
+//     if(items[i].price > highestPriced.price) {
+//       highestPriced = items[i];
+//     }
+//   }
+//   return highestPriced;
+// }
 
+function findHighestPriced(items){
+  return items.reduce((highest, item) => {
+    return item.price >  highest.price ? item : highest;
+  });
+}
 
+// console.log(findHighestPriced([
+//   { sku: 'a1', price: 25 },
+//   { sku: 'b2', price: 50 },
+//   { sku: 'c3', price: 50 },
+//   { sku: 'd4', price: 10 }
+// ]))
 
 /*-----------------------------------------------------------------------------
 Challenge: 17-mapArray
@@ -771,9 +790,9 @@ function mapArray(arr, callback){
     return acc;
   }, []);
 }
-console.log(mapArray( ['rose', 'tulip', 'daisy'], function(f, i) {
-  return `${i + 1} - ${f}`
-} ))
+// console.log(mapArray( ['rose', 'tulip', 'daisy'], function(f, i) {
+//   return `${i + 1} - ${f}`
+// } ))
 
 
 /*-----------------------------------------------------------------------------
