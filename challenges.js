@@ -933,6 +933,9 @@ isPrime(200) //=> false
 -----------------------------------------------------------------------------*/
 // Your solution for 21-isPrime here:
 
+function isPrime(num) {
+  
+} 
 
 
 
