@@ -933,11 +933,36 @@ isPrime(200) //=> false
 -----------------------------------------------------------------------------*/
 // Your solution for 21-isPrime here:
 
-function isPrime(num) {
-  
-} 
+// function isPrime(num) {
+//   if (num <= 1 && num % 2 === 0){return false;}   // not even num
+//   if (num === 2) return true; // 2 is the only even but prime 
+
+//   // handle starts from 3
+//   for (let i = 3; i <= Math.sqrt(num); i += 2){
+//     if (num % i === 0){
+//       return false;
+//     };
+//   }
+//   return true;
+// } 
 
 
+
+// recursive 
+
+function isPrime(num, divisor =2){
+  if (num < 1) return false;
+  if (num === 2) return true;
+  if (num % divisor === 0) return false;
+
+  if( divisor * divisor > num ) return true;
+  //If num had a factor larger than its square root, 
+  //it would also have a smaller factor, which we would have already found.
+
+  return isPrime(num, divisor + (divisor === 2 ? 1 : 2));
+}
+
+// console.log(isPrime(25));
 
 
 /*-----------------------------------------------------------------------------
