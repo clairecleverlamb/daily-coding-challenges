@@ -949,7 +949,6 @@ isPrime(200) //=> false
 
 
 // recursive 
-
 function isPrime(num, divisor =2){
   if (num < 1) return false;
   if (num === 2) return true;
