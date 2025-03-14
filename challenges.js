@@ -842,9 +842,21 @@ reduceArray( ['Yes', 'No', 'Yes', 'Maybe'], function(acc, v) {
 -----------------------------------------------------------------------------*/
 // Your solution for 18-reduceArray here:
 
+function reduceArray(arr, callback, val){
+  let acc = val;
+  for (let i = 0; i < arr.length; i++){
+    acc = callback(acc, arr[i], i);
+  }
+  return acc;
+}
 
 
-
+console.log(
+  reduceArray( ['Yes', 'No', 'Yes', 'Maybe'], function(acc, v) {
+    acc[v] = acc[v] ? acc[v] + 1 : 1
+    return acc
+  }, {} )
+)
 
 /*-----------------------------------------------------------------------------
 Challenge: 19-flatten
@@ -954,7 +966,7 @@ function isPrime(num, divisor =2){
   if (num === 2) return true;
   if (num % divisor === 0) return false;
 
-  if( divisor * divisor > num ) return true;
+  if (divisor * divisor > num ) return true;
   //If num had a factor larger than its square root, 
   //it would also have a smaller factor, which we would have already found.
 
