@@ -884,7 +884,23 @@ flatten( [1, [2, [3, [4]]], 1, 'a', ['b', 'c']] );
 // Your solution for 19-flatten here:
 
 
+// function flatten(arr) {
+//   let result = [];
+//   for (let i of arr) {
+//     if (Array.isArray(i)) {
+//       result = result.concat(flatten(i));
+//     } else{
+//       result.push(i);
+//     }
+//   }
+//   return result;
+// }
 
+const flatten = arr => arr.reduce(
+  (acc, val) => acc.concat(Array.isArray(val) ? flatten(val) : val
+),[])
+
+console.log(flatten( [1, [2, [3, [4]]], 1, 'a', ['b', 'c']] ))
 
 
 /*-----------------------------------------------------------------------------
