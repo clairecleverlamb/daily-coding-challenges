@@ -1,5 +1,3 @@
-# ![Daily Coding Challenges](./assets/hero.png)
-
 ## About
 
 This series of coding challenges is meant to supplement the student learning journey. The content ranges from fundamental JavaScript topics, such as basic syntax and data types, to more advanced subjects, including array and object manipulation.
